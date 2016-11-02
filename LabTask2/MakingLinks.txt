@@ -1,0 +1,12 @@
+mkdir LabTask2
+cd LabTask2
+mkdir Originals
+cd Originals
+touch HardStuff SoftStuff
+echo garbage > HardStuff
+echo garbage > SoftStuff
+cd ..
+mkdir Links
+cd Links
+ln -T ../Originals/HardStuff LinkToHardStuff
+ln -T -s ../Originals/SoftStuff RelativeToSoftStuff

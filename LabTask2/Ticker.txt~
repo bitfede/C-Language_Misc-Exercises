@@ -1,0 +1,8 @@
+./Ticker 5 & ./Ticker 7
+^Z
+ps
+bg 2
+fg 1
+^Z
+kill 12970
+kill 12971

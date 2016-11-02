@@ -1,0 +1,8 @@
+Describe the difference between wc `grep -l int *` and wc * | grep -l int. Why is it not giving the same output? Put the answer into a text file named Explanation.txt.(0.5%)
+---------------
+
+$ wc `grep -l int *` 
+-has backticks, meaning that grep will be executed before anything else. Then the output of it will be used as an argument for wc line by line
+
+$ wc * | grep -l int
+is different because wc will be executed first, and its whole entire output will be piped into grep, which will extract what's needed

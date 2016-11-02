@@ -1,0 +1,8 @@
+./Ticker 5 & ./Ticker 7
+^Z
+ps
+bg %JOBNUMBER		#in my case was 2
+fg %JOBNUMBER		#in my case was 1
+^Z
+kill %PID		#in my case was 12970
+kill %PID       	#in my case was 12971

@@ -1,0 +1,2 @@
+ln -T ../Originals/HardStuff LinkToHardStuff
+ln -T -s ../Originals/SoftStuff RelativeToSoftStuff

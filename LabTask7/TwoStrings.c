@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+//---------------------
+//constants and typedefs
+
+#define MAX_STR_LEN 128
+
+typedef char String[MAX_STR_LEN];
+
+//---------------------
+//program code
+
+int main() {
+  
+  String str1;
+  String str2;
+
+  printf("Input the first String:  ");
+  scanf("%s", str1);
+
+  printf("Input the second String: ");
+  scanf("%s", str2);
+  
+  int counter1 = 0;
+  int counter2 = 0;
+  int len1 = strlen(str1);
+  int len2 = strlen(str2);
+  char result[len1];
+  int resultIndx = 0;  
+  int matched = 0;
+  
+  while (counter1 < len1) {
+     char char1 = str1[counter1];
+     counter2 = 0;
+     matched = 0;
+     while (counter2 < len2) {
+       char char2 = str2[counter2];
+       if ( char2 == char1) {
+	 matched = 1;
+       }
+       counter2++;
+     } //end lil while loop
+     if (matched == 0) {
+       result[resultIndx] = char1;
+       resultIndx++; 
+    }
+     counter1++;
+  }  //end of big while loop
+  
+
+  printf("Result: ");
+  int i = 0;
+  while (i < resultIndx) {
+    printf("%c", result[i]); 
+    i++;
+  }
+  printf("\n");
+  //printf("str1:  %s\t",str1); //debug
+  //printf("str2:  %s\n",str2); //debug
+  return (EXIT_SUCCESS);
+}

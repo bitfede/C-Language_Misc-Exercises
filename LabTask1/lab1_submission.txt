@@ -1,0 +1,6 @@
+Submitted MyStuff.txt
+Submitted GetMyStuff.sh
+Submitted MyPipe.txt
+Submitted Explanation.txt
+Submitted rename.sh
+Submitted disk.sh
