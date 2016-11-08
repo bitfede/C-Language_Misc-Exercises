@@ -1,0 +1,114 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+//------------------------------------
+
+#define MAXSTRLEN 128
+
+//-----------------------------------
+
+typedef enum {
+  mammal,
+  bird,
+  fish,
+  insect,
+  error
+} AnimalType;
+
+struct specie {
+  char* name;
+  float size;
+  AnimalType type;
+};
+
+
+
+int main() {
+  
+  //create array of structs
+
+  AnimalType toEnum(String type) {
+    if(!strcmp(type, "mammal")) {
+      return mammal;
+    } else if(!strcmp(type, "insect")) {
+      return insect;
+    } else if(!strcmp(type, "bird")) {
+      return bird;
+    } else if(!strcmp(type, "fish")) {
+      return fish;
+    } else {
+      printf("Invalid type");
+      exit(1);
+    }
+  }
+
+  //--------------------------------------------------------- 
+
+  char * toString(AnimalType type) {
+    switch(type) {
+    case mammal: return "mammal";
+    case insect: return "insect";
+    case bird: return "bird";
+    case fish: return "fish";
+    default: return "invalid type";
+    }
+  }
+
+  //--------------------------------------------------------- 
+
+  void print(Record * log, int logSize) {
+    printf("\nThe following new species were found:\n");
+    int i;
+    for(i = 0; i < logSize; i++) {
+      Record animal = log[i];
+      printf("%-20s has size %6.2lf and is a %s\n",animal.name, animal.size, toString(animal.type));
+    }
+    free(log);
+  }
+
+  //--------------------------------------------------------- 
+
+  int main(void) {
+    //create a section of memory for the first entry
+    Record * log = (Record *)malloc(INITIAL_SIZE * sizeof(Record));
+    int logSize = INITIAL_SIZE;
+    int index = -1;
+
+    while(1) {
+      index++;
+      //double the size of the memory if it is full
+      if(index == logSize) {
+	logSize *= REALLOCATE_SIZE;
+	log = (Record *)realloc(log, logSize * sizeof(Record));
+	if(log == NULL) {
+	  printf("Error allocating memory");
+	  exit(1);
+	}
+      }
+      Record record;
+      String type;
+      //get the animal information and store in record
+      printf("Enter animal information (\"exit\" to exit)\n");
+      printf("What is the name : ");
+      scanf("%s", record.name);
+      if(!strcmp(record.name,"exit")) {
+	break;
+      }
+      printf("What is the size : ");
+      scanf("%lf", &record.size);
+      printf("What is the type : ");
+      scanf("%s", type);
+      record.type = toEnum(type);
+      //add record to animal log
+      log[index] = record;
+    }
+    //print the animal log
+    print(log, index);
+    return EXIT_SUCCESS;
+  }
+
+
+
+
+  return(EXIT_SUCCESS);
+}
