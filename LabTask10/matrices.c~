@@ -1,0 +1,9 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+typedef int matrix[3][3];
+
+int main (void) {  
+
+}
